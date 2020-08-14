@@ -5,14 +5,14 @@
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/1.jpeg",
       "small": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/small/1.jpeg",
       "video_url": "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-      "aspectRatio": 0.834,
       "description": "Trabalhando Muito!!",
       "likes": 1002,
       "hashtags": "#Work #Dev",
-      "place": "Cinema do PrudenShopping",
+      "place": "Denver",
       "authorId": 1,
       "author": {
-        "name": "Tom"
+        "name": "Tom",
+        "avatar": "https://img.icons8.com/bubbles/2x/user.png"
       }
     },
     {
@@ -20,14 +20,14 @@
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/2.jpeg",
       "small": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/small/2.jpeg",
       "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-      "aspectRatio": 0.834,
       "description": "Code, code and more code!",
       "likes": 1002,
-      "hashtags": "#Work #Dev",
-      "place": "Cinema do PrudenShopping",
+      "hashtags": "#Nice #Dev",
+      "place": "Arvada",
       "authorId": 2,
       "author": {
-        "name": "Woodfin"
+        "name": "Woodfin",
+        "avatar": "https://img.icons8.com/bubbles/2x/user.png"
       }
     },
     {
@@ -35,14 +35,14 @@
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/3.jpeg",
       "small": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/small/3.jpeg",
       "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-      "aspectRatio": 0.834,
       "description": "Rocketships fly away!",
       "likes": 1002,
-      "hashtags": "#Work #Dev",
-      "place": "Cinema do PrudenShopping",
+      "hashtags": "#Tom #Dev",
+      "place": "Lakewood",
       "authorId": 3,
       "author": {
-        "name": "Andres"
+        "name": "Andres",
+        "avatar": "https://img.icons8.com/bubbles/2x/user.png"
       }
     },
     {
@@ -50,14 +50,14 @@
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/4.jpeg",
       "small": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/small/4.jpeg",
       "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-      "aspectRatio": 0.834,
       "description": "3, 2, 1, ready to launch!",
       "likes": 1002,
-      "hashtags": "#Work #Dev",
+      "hashtags": "#Working #On #Dev",
       "place": "Cinema do PrudenShopping",
       "authorId": 4,
       "author": {
-        "name": "Tom Dev"
+        "name": "Tom Dev",
+        "avatar": "https://img.icons8.com/bubbles/2x/user.png"
       }
     },
     {
@@ -65,14 +65,14 @@
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/5.jpeg",
       "small": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/small/5.jpeg",
       "video_url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-      "aspectRatio": 0.834,
       "description": "Code, code and more code!",
       "likes": 1002,
       "hashtags": "#Work #Dev",
       "place": "Cinema do PrudenShopping",
       "authorId": 2,
       "author": {
-        "name": "Tom"
+        "name": "Tom",
+        "avatar": "https://img.icons8.com/bubbles/2x/user.png"
       }
     }
   ]
