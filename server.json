@@ -1,0 +1,79 @@
+{
+  "feed": [
+    {
+      "id": 1,
+      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/1.jpeg",
+      "small": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/small/1.jpeg",
+      "video_url": "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+      "aspectRatio": 0.834,
+      "description": "Trabalhando Muito!!",
+      "likes": 1002,
+      "hashtags": "#Work #Dev",
+      "place": "Cinema do PrudenShopping",
+      "authorId": 1,
+      "author": {
+        "name": "Tom"
+      }
+    },
+    {
+      "id": 2,
+      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/2.jpeg",
+      "small": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/small/2.jpeg",
+      "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "aspectRatio": 0.834,
+      "description": "Code, code and more code!",
+      "likes": 1002,
+      "hashtags": "#Work #Dev",
+      "place": "Cinema do PrudenShopping",
+      "authorId": 2,
+      "author": {
+        "name": "Woodfin"
+      }
+    },
+    {
+      "id": 3,
+      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/3.jpeg",
+      "small": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/small/3.jpeg",
+      "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      "aspectRatio": 0.834,
+      "description": "Rocketships fly away!",
+      "likes": 1002,
+      "hashtags": "#Work #Dev",
+      "place": "Cinema do PrudenShopping",
+      "authorId": 3,
+      "author": {
+        "name": "Andres"
+      }
+    },
+    {
+      "id": 4,
+      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/4.jpeg",
+      "small": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/small/4.jpeg",
+      "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      "aspectRatio": 0.834,
+      "description": "3, 2, 1, ready to launch!",
+      "likes": 1002,
+      "hashtags": "#Work #Dev",
+      "place": "Cinema do PrudenShopping",
+      "authorId": 4,
+      "author": {
+        "name": "Tom Dev"
+      }
+    },
+    {
+      "id": 5,
+      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/5.jpeg",
+      "small": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/instagram-clone/small/5.jpeg",
+      "video_url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+      "aspectRatio": 0.834,
+      "description": "Code, code and more code!",
+      "likes": 1002,
+      "hashtags": "#Work #Dev",
+      "place": "Cinema do PrudenShopping",
+      "authorId": 2,
+      "author": {
+        "name": "Tom"
+      }
+    }
+  ]
+}
