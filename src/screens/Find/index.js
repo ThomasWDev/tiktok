@@ -13,7 +13,7 @@ const Find = (props) => {
 
     return (
         <Layout>
-            <View>
+            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
                 <Text>Find</Text>
             </View>
         </Layout>

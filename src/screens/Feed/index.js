@@ -14,6 +14,8 @@ import {
     SafeAreaView,
     Image,
     Dimensions,
+    FlatList,
+    TextInput
 } from "react-native";
 import Modal from 'react-native-modal';
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -32,6 +34,7 @@ import disk from "../../../assets/disk-circle.png";
 import feeds from "../../../server.json"
 
 import { Video } from "expo-av";
+import CommentItem from "../../components/CommentItem";
 const { width, height = height - 50 } = Dimensions.get("window");
 
 const Feed = (props) => {
@@ -42,12 +45,40 @@ const Feed = (props) => {
     const [commentModalVisible, setCommentModalVisible] = useState(false);
 
     const [comments, setComments] = useState([
+        {
+            id: "0",
+            comment: "Hello",
+            author: "Tom Woodfin",
+            likes: 50,
+            avatar: "https://img.icons8.com/bubbles/2x/user.png"
+        },
+        {
+            id: "1",
+            comment: "Awesome Code",
+            author: "Tom Woodfin",
+            likes: 4,
+            avatar: "https://img.icons8.com/bubbles/2x/user.png"
+        },
+        {
+            id: "2",
+            comment: "Nice",
+            author: "Tom Woodfin",
+            likes: 7,
+            avatar: "https://img.icons8.com/bubbles/2x/user.png"
+        },
+        {
+            id: "3",
+            comment: "Its just Awesome",
+            author: "Tom Woodfin",
+            likes: 1,
+            avatar: "https://img.icons8.com/bubbles/2x/user.png"
+        },
+    ]);
+    const [commentValue, onCommentValueChange] = React.useState("");
 
-    ])
-
-    function handleLike() {
+    const handleLike = () => {
         setLiked(!liked);
-    }
+    };
 
     useEffect(() => {
         async function LoadFeed() {
@@ -66,13 +97,13 @@ const Feed = (props) => {
             <View style={[{ zIndex: 7 }, styles.header]}>
                 <View>
                     <TouchableOpacity>
-                        <Text style={styles.textLeftHeader}>Seguindo</Text>
+                        <Text style={styles.textLeftHeader}>Following</Text>
                     </TouchableOpacity>
                 </View>
                 <Text style={styles.spanCenterHeader}>|</Text>
                 <View>
                     <TouchableOpacity>
-                        <Text style={styles.textRightHeader}>Para você</Text>
+                        <Text style={styles.textRightHeader}>For you</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -116,7 +147,7 @@ const Feed = (props) => {
                                     </TouchableOpacity>
                                     <Text style={styles.hashtags}>{item.hashtags}</Text>
                                     <TouchableOpacity>
-                                        <Text style={styles.translate}>{item.description}</Text>
+                                        <Text style={styles.translate}>{item.place}</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity style={styles.componentMusic}>
                                         <View style={styles.imageIconMusic}>
@@ -198,7 +229,7 @@ const Feed = (props) => {
             >
                 <View style={styles.modalInner}>
                     <View style={styles.modalHeader}>
-                        <Text style={styles.modalHeaderText}>20 Comments</Text>
+                        <Text style={styles.modalHeaderText}>{comments.length} Comments</Text>
                     </View>
                     <TouchableOpacity
                         style={styles.modalCloseBtn}
@@ -208,7 +239,42 @@ const Feed = (props) => {
                     >
                         <Icon name="close" size={14}/>
                     </TouchableOpacity>
-                    <Text>Hello!</Text>
+                    <View style={styles.comments}>
+                        <FlatList
+                            scrollEnabled={true}
+                            data={comments}
+                            renderItem={({item}) => <CommentItem {...item}/>}
+                            keyExtractor={item => item.id}
+                        />
+                    </View>
+                    <View style={styles.commentBox}>
+                        <TextInput
+                            style={styles.commentBoxInput}
+                            onChangeText={text => onCommentValueChange(text)}
+                            value={commentValue}
+                            placeholder="Add Comment . . ."
+                            onSubmitEditing={() => {
+                                let lastCommentid = comments[comments.length-1].id;
+                                let newComments = comments.concat({
+                                    id: `${parseInt(lastCommentid)+1}`,
+                                    comment: commentValue,
+                                    author: "Tom Woodfin",
+                                    likes: 0,
+                                    avatar: "https://img.icons8.com/bubbles/2x/user.png"
+                                });
+                                setComments(newComments);
+                                onCommentValueChange("");
+                            }}
+                        />
+                        <View style={styles.commentBoxActions}>
+                            <TouchableOpacity>
+                                <Icon style={styles.commentBoxActionsIcon} name='at' size={25}/>
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Icon style={styles.commentBoxActionsIcon} name='smile-o' size={25}/>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 </View>
             </Modal>
         </SafeAreaView>
@@ -232,7 +298,7 @@ const styles = StyleSheet.create({
         zIndex: 2,
         alignSelf: "stretch",
         position: "relative",
-        bottom: 30
+        bottom: 0
     },
     page_container: {
         flex: 1,
@@ -256,7 +322,10 @@ const styles = StyleSheet.create({
         left: 75,
         alignItems: "center"
     },
-    spanCenterHeader: { color: "white", fontSize: 10 },
+    spanCenterHeader: {
+        color: "#fff",
+        fontSize: 10
+    },
     textLeftHeader: {
         color: "grey",
         paddingHorizontal: 10,
@@ -273,8 +342,8 @@ const styles = StyleSheet.create({
         width: "75%",
         position: "absolute",
         left: 0,
-        bottom: 30,
-        zIndex: 3
+        bottom: 40,
+        zIndex: 3,
     },
     InnerContent: {
         width: "100%",
@@ -285,9 +354,21 @@ const styles = StyleSheet.create({
         flexDirection: "column"
     },
 
-    name: { color: "white", marginVertical: 3, fontSize: 15, fontWeight: "bold" },
-    description: { color: "white", marginTop: 2, fontSize: 15 },
-    hashtags: { color: "white", fontWeight: "bold" },
+    name: {
+        color: "#fff",
+        marginVertical: 3,
+        fontSize: 15,
+        fontWeight: "bold"
+    },
+    description: {
+        color: "#fff",
+        marginTop: 2,
+        fontSize: 15
+    },
+    hashtags: {
+        color: "#fff",
+        fontWeight: "bold"
+    },
     componentMusic: {
         flexDirection: "row",
         alignItems: "center",
@@ -314,10 +395,10 @@ const styles = StyleSheet.create({
     contentIcon: {
         width: "20%",
         position: "absolute",
-        bottom: 40,
+        bottom: 50,
         right: 0,
         alignItems: "center",
-        zIndex: 3
+        zIndex: 3,
     },
     contentIconProfile: {
         alignItems: "center",
@@ -358,7 +439,12 @@ const styles = StyleSheet.create({
         resizeMode: "cover",
         borderRadius: 20
     },
-    textActions: { color: "white", fontSize: 12, textAlign: "center", width: 54 },
+    textActions: {
+        color: "#fff",
+        fontSize: 12,
+        textAlign: "center",
+        width: 54
+    },
     iconMusic: {
         width: 50,
         height: 50,
@@ -373,11 +459,11 @@ const styles = StyleSheet.create({
     modalInner: {
         backgroundColor: "#fff",
         position: 'relative',
-        minHeight: 300,
+        minHeight: 400,
     },
     modalHeader: {
        padding: 5,
-       height: 30,
+       height: 40,
        justifyContent: 'center',
        alignItems: 'center'
     },
@@ -392,7 +478,33 @@ const styles = StyleSheet.create({
         top: 5,
         width: 20,
         height: 20
-    }
+    },
+    comments: {
+        flex: 1
+    },
+    commentBox: {
+        position: 'relative'
+    },
+    commentBoxInput: {
+        height: 50,
+        borderColor: 'gray',
+        borderWidth: .5,
+        paddingLeft: 10,
+        paddingRight: 70,
+    },
+    commentBoxActions: {
+        position: 'absolute',
+        right: 0,
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        flexDirection: 'row',
+        width: 70,
+        height: 50,
+    },
+    commentBoxActionsIcon: {
+        fontWeight: 'bold',
+        color: '#999'
+    },
 });
 
 export default Feed;

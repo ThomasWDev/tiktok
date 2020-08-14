@@ -44,7 +44,7 @@ const Routes = createBottomTabNavigator(
             showLabel: false,
             style: {
                 backgroundColor: "black",
-                height: 57,
+                height: 66,
                 borderTopColor: "grey",
                 borderTopWidth: 0.19,
                 paddingVertical: 7
