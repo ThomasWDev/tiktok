@@ -1,3 +1,10 @@
+/*
+ *
+ *  Created By: Thomas Woodfin
+ *
+ *
+ */
+
 import React from "react";
 
 import {Image, Text} from "react-native";
@@ -8,12 +15,27 @@ import {createBottomTabNavigator, BottomTabBar} from "react-navigation-tabs";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
 import Feed from "../screens/Feed";
+import Find from "../screens/Find";
+import Plus from "../screens/Plus";
+import MessageBox from "../screens/MessageBox";
+import Profile from "../screens/Profile";
+
+import message from "../../assets/windowscomments-grey.png";
+import userProfile from "../../assets/userProfile.png";
+import search from "../../assets/search-grey.png";
 import plusTikTokWhite from "../../assets/plusTikTok-white.png";
 import home from "../../assets/home.png";
 
 const Routes = createBottomTabNavigator(
     {
         Home: Feed,
+        Discover: Find,
+        Plus: {
+            screen: Plus,
+            navigationOptions: {}
+        },
+        "Inbox": MessageBox,
+        Me: Profile
     },
     {
         tabBarOptions: {
@@ -35,6 +57,10 @@ const Routes = createBottomTabNavigator(
                 let IconName;
 
                 if (routeName === "Home") IconName = home;
+                else if (routeName === "Discover") IconName = search;
+                else if (routeName === "Plus") IconName = plusTikTokWhite;
+                else if (routeName === "Inbox") IconName = message;
+                else if (routeName === "Me") IconName = userProfile;
 
                 return (
                     <>
